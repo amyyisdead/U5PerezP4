@@ -56,6 +56,16 @@ public class Target : MonoBehaviour
         
     }
 
+    public void DestroyTarget()
+    {
+        if (gameManager.isGameActive)
+        {
+            Destroy(gameObject);
+            Instantiate(exlosionPartical, transform.position, exlosionPartical.transform.rotation);
+            gameManager.UpdateScore(pointValue);
+        }
+    }
+
 
     Vector3 RandomForce()
     {
